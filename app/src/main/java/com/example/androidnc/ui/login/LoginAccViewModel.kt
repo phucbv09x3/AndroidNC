@@ -7,6 +7,7 @@ import androidx.lifecycle.MutableLiveData
 import com.example.androidnc.R
 import com.example.androidnc.ui.base.BaseViewModel
 import com.example.androidnc.ui.list.ListCoinFragment
+import com.example.androidnc.ui.signup.SignUpFragment
 import com.example.androidnc.utils.Constants
 import com.example.androidnc.utils.DateFormat
 import com.example.androidnc.utils.DateType
@@ -44,7 +45,6 @@ class LoginAccViewModel() : BaseViewModel() {
                         //updateUI(current)
                         if (current!!.isEmailVerified) {
                             valueCheckLogin.value = 1
-                            navigation.switchFragment(ListCoinFragment::class)
                         }else{
                             valueCheckLogin.value=4
                         }
@@ -62,6 +62,10 @@ class LoginAccViewModel() : BaseViewModel() {
         current?.let {
             navigation.switchFragment(ListCoinFragment::class)
         }
+    }
+
+    fun clickSignUp(){
+        navigation.switchFragment(SignUpFragment::class)
     }
 
     private fun resetText() {

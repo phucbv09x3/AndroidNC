@@ -6,7 +6,9 @@ import com.example.androidnc.R
 import com.example.androidnc.databinding.ActivityMainBinding
 import com.example.androidnc.ui.base.BaseActivity
 import com.example.androidnc.ui.base.BaseFragment
+import com.example.androidnc.ui.list.HomeFragment
 import com.example.androidnc.ui.list.ListCoinFragment
+import com.example.androidnc.ui.list.StatusFragment
 import com.example.androidnc.ui.login.LoginAccFragment
 import com.example.androidnc.ui.signup.SignUpFragment
 import com.example.androidnc.utils.printLog
@@ -35,8 +37,7 @@ open class MainActivity : BaseActivity<MainViewModel, ActivityMainBinding>() {
     }
 
     override fun initData() {
-
-        switchFragment(SignUpFragment::class, null, false)
+        switchFragment(LoginAccFragment::class, null, false)
     }
 
 
@@ -53,6 +54,8 @@ open class MainActivity : BaseActivity<MainViewModel, ActivityMainBinding>() {
             LoginAccFragment::class -> LoginAccFragment()
             ListCoinFragment::class -> ListCoinFragment()
             SignUpFragment::class->SignUpFragment()
+            HomeFragment::class -> HomeFragment()
+            StatusFragment::class -> StatusFragment()
             else -> {
                 throw Resources.NotFoundException("Fragment not fount, please check again")
             }

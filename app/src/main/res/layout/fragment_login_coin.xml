@@ -110,15 +110,16 @@
             android:orientation="horizontal"
             app:layout_constraintGuide_percent="0.67" />
 
-        <TextView
+        <Button
             android:id="@+id/tv_register"
             style="android.text.style.ClickableSpan"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_marginTop="@dimen/_16sp"
-            android:text="Don't have a account? REGISTER HERE"
-            android:textColor="#ffffff"
-            android:textSize="@dimen/_18sp"
+            android:text="REGISTER HERE"
+            android:textColor="#000000"
+            android:textSize="12dp"
+            android:onClick="@{()->viewModel.clickSignUp()}"
             android:textStyle="italic"
             app:layout_constraintLeft_toLeftOf="parent"
             app:layout_constraintRight_toRightOf="parent"

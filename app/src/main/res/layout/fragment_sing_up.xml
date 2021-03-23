@@ -153,6 +153,7 @@
             android:background="#FFFFFF"
             android:gravity="center_vertical"
             android:text="Sign in"
+            android:onClick="@{()->viewModel.clickSignIn()}"
             android:textAllCaps="false"
             android:textColor="#e9446a"
             app:layout_constraintLeft_toRightOf="@id/textView"

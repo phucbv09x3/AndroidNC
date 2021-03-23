@@ -13,7 +13,7 @@ import com.example.androidnc.ui.base.BaseFragment
 import com.example.androidnc.ui.login.LoginAccFragment
 
 
-class SignUpFragment :BaseFragment<SignUpViewModel,FragmentSingUpBinding>(){
+class SignUpFragment :BaseFragment<SignUpViewModel, FragmentSingUpBinding>(){
     override fun createViewModel(): Class<SignUpViewModel> {
         return SignUpViewModel::class.java
     }
@@ -26,12 +26,12 @@ class SignUpFragment :BaseFragment<SignUpViewModel,FragmentSingUpBinding>(){
     }
 
     override fun bindViewModel() {
-        viewModel.register()
+        //viewModel.register()
         viewModel.valueCheckSignIn.observe(this, Observer {
             when(it){
                 1->{
                     val bundle = arguments
-                    bundle!!.putString("k","")
+                    bundle?.putString("k","")
                     navigators.switchFragment(LoginAccFragment::class)
                 }
                 2->{

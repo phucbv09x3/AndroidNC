@@ -18,6 +18,10 @@ class SignUpViewModel : BaseViewModel() {
     private var auth = FirebaseAuth.getInstance()
     private var firebaseReference: DatabaseReference? = null
 
+    fun clickSignIn(){
+        navigation.switchFragment(LoginAccFragment::class)
+    }
+
     fun register() {
         val name = fullName.get().toString()
         val mail = email.get().toString()
