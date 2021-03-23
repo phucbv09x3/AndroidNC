@@ -1,0 +1,127 @@
+<?xml version="1.0" encoding="utf-8"?>
+<layout>
+
+    <data>
+
+        <variable
+            name="viewModel"
+            type="com.example.androidnc.ui.login.LoginAccViewModel" />
+    </data>
+
+    <androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+        xmlns:app="http://schemas.android.com/apk/res-auto"
+        xmlns:tools="http://schemas.android.com/tools"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:background="@drawable/img_bg"
+        tools:context=".ui.phuc.views.LoginViewFragment">
+
+        <ImageView
+            android:layout_marginTop="@dimen/_16sp"
+            android:layout_width="@dimen/_200dp"
+            android:layout_height="@dimen/_100dp"
+            android:scaleType="fitXY"
+            android:src="@drawable/icon_chat"
+            app:layout_constraintBottom_toBottomOf="@id/guideline"
+            app:layout_constraintLeft_toLeftOf="parent"
+            app:layout_constraintRight_toRightOf="parent"
+            app:layout_constraintTop_toTopOf="parent" />
+
+        <RelativeLayout
+            android:id="@+id/rlt_layout"
+            android:layout_width="match_parent"
+            android:layout_height="@dimen/_0dp"
+            android:layout_marginLeft="@dimen/_20dp"
+            android:layout_marginRight="@dimen/_20dp"
+            android:background="@drawable/custom_bg"
+            app:layout_constraintBottom_toBottomOf="@id/guideline2"
+            app:layout_constraintLeft_toLeftOf="parent"
+            app:layout_constraintTop_toTopOf="@id/guideline">
+
+            <EditText
+                android:id="@+id/edt_userName"
+                android:layout_width="match_parent"
+                android:layout_height="@dimen/_60dp"
+                android:layout_marginLeft="@dimen/_60dp"
+                android:layout_marginTop="@dimen/_40dp"
+                android:layout_marginRight="@dimen/_60dp"
+                android:background="#ffffff"
+                android:drawableLeft="@drawable/ic_baseline_person_outline_24"
+                android:drawablePadding="@dimen/_10dp"
+                android:hint="User name"
+                android:maxLines="1"
+                android:paddingLeft="@dimen/_10dp"
+                android:text="@={viewModel.userName}" />
+
+            <EditText
+                android:id="@+id/edt_password"
+                android:layout_width="match_parent"
+                android:layout_height="@dimen/_60dp"
+                android:layout_below="@id/edt_userName"
+                android:layout_marginLeft="@dimen/_60dp"
+                android:layout_marginTop="@dimen/_20dp"
+                android:layout_marginRight="@dimen/_60dp"
+                android:background="#ffffff"
+                android:drawableLeft="@drawable/ic_baseline_lock_24"
+                android:drawablePadding="@dimen/_10dp"
+                android:hint="Password"
+                android:maxLines="1"
+                android:paddingLeft="@dimen/_10dp"
+                android:text="@={viewModel.password}" />
+
+            <Button
+                android:id="@+id/btn_login"
+                android:layout_width="@dimen/_100dp"
+                android:layout_height="@dimen/_50dp"
+                android:layout_below="@id/edt_password"
+                android:layout_centerHorizontal="true"
+                android:layout_marginTop="@dimen/_40dp"
+                android:background="@drawable/custom_login"
+                android:onClick="@{view->viewModel.onClickLogin()}"
+                android:text="Login"
+                android:textAllCaps="false"
+                android:textColor="#ffffff"
+                android:textSize="@dimen/_20sp" />
+
+        </RelativeLayout>
+
+        <TextView
+            android:id="@+id/tv_line"
+            android:layout_width="match_parent"
+            android:layout_height="1dp"
+            android:layout_marginLeft="@dimen/_20dp"
+            android:layout_marginTop="@dimen/_30dp"
+            android:layout_marginRight="@dimen/_20dp"
+            android:background="#ffffff"
+            app:layout_constraintLeft_toLeftOf="parent"
+            app:layout_constraintTop_toBottomOf="@id/rlt_layout" />
+
+        <androidx.constraintlayout.widget.Guideline
+            android:id="@+id/guideline"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:orientation="horizontal"
+            app:layout_constraintGuide_percent="0.23" />
+
+        <androidx.constraintlayout.widget.Guideline
+            android:id="@+id/guideline2"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:orientation="horizontal"
+            app:layout_constraintGuide_percent="0.67" />
+
+        <TextView
+            android:id="@+id/tv_register"
+            style="android.text.style.ClickableSpan"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="@dimen/_16sp"
+            android:text="Don't have a account? REGISTER HERE"
+            android:textColor="#ffffff"
+            android:textSize="@dimen/_18sp"
+            android:textStyle="italic"
+            app:layout_constraintLeft_toLeftOf="parent"
+            app:layout_constraintRight_toRightOf="parent"
+            app:layout_constraintTop_toBottomOf="@id/tv_line" />
+    </androidx.constraintlayout.widget.ConstraintLayout>
+</layout>

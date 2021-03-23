@@ -1,0 +1,60 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content"
+    android:background="#FF6600"
+    android:orientation="horizontal"
+    android:weightSum="9">
+
+
+    <ImageView
+        android:id="@+id/img_notification"
+        android:layout_width="0dp"
+        android:layout_height="@dimen/_80dp"
+        android:layout_gravity="center"
+        android:layout_weight="2.5"
+        android:scaleType="fitCenter" />
+
+    <TextView
+        android:layout_width="@dimen/_1dp"
+        android:layout_height="@dimen/_50dp"
+        android:layout_gravity="center"
+        android:layout_marginLeft="@dimen/_4dp"
+        android:background="@color/purple_700" />
+
+    <LinearLayout
+        android:layout_width="@dimen/_0dp"
+        android:layout_height="wrap_content"
+        android:layout_weight="6.2"
+        android:orientation="vertical">
+
+        <TextView
+            android:id="@+id/tv_title"
+            android:layout_width="match_parent"
+            android:layout_height="@dimen/_40dp"
+            android:paddingLeft="@dimen/_10dp"
+            android:paddingTop="@dimen/_4dp"
+            android:text="Create by Phuc"
+            android:textSize="@dimen/_20dp"
+            android:textStyle="bold" />
+
+        <TextView
+            android:id="@+id/tv_notification_user"
+            android:layout_width="match_parent"
+            android:layout_height="@dimen/_40dp"
+            android:ellipsize="end"
+            android:maxLines="1"
+            android:paddingLeft="@dimen/_10dp"
+            android:text="Create by Phuc"
+            android:textSize="@dimen/_16sp" />
+    </LinearLayout>
+
+
+    <Button
+        android:id="@+id/btn_closeNoti"
+        android:layout_width="@dimen/_20dp"
+        android:layout_height="@dimen/_28dp"
+        android:layout_gravity="center_vertical"
+        android:layout_weight="0.3"
+        android:background="@drawable/ic_baseline_delete_24" />
+</LinearLayout>
