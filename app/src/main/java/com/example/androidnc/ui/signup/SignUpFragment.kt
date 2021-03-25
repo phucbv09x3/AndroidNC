@@ -5,6 +5,7 @@ import androidx.fragment.app.Fragment
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
+import android.widget.LinearLayout
 import android.widget.Toast
 import androidx.lifecycle.Observer
 import com.example.androidnc.R
@@ -23,6 +24,8 @@ class SignUpFragment :BaseFragment<SignUpViewModel, FragmentSingUpBinding>(){
     }
 
     override fun initView() {
+        activity.findViewById<LinearLayout>(R.id.ln).visibility= View.GONE
+
     }
 
     override fun bindViewModel() {

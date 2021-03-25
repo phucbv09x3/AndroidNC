@@ -1,6 +1,5 @@
 package com.example.androidnc.ui.base
 
-import android.app.Application
 import androidx.lifecycle.ViewModel
 import androidx.lifecycle.ViewModelProvider
 import com.example.androidnc.data.DataManager
@@ -8,9 +7,10 @@ import com.example.androidnc.data.local.room.CoinDatabase
 import com.example.androidnc.ui.list.HomeViewModel
 import com.example.bitcoin.data.scheduler.ISchedulerProvider
 import com.example.androidnc.ui.list.ListCoinViewModel
-import com.example.androidnc.ui.list.StatusViewModel
+import com.example.androidnc.ui.status.StatusViewModel
 import com.example.androidnc.ui.login.LoginAccViewModel
 import com.example.androidnc.ui.main.MainViewModel
+import com.example.androidnc.ui.message.MessageViewModel
 import com.example.androidnc.ui.signup.SignUpViewModel
 import javax.inject.Inject
 import javax.inject.Singleton
@@ -32,6 +32,7 @@ class ViewModelFactory @Inject constructor(
             modelClass.isAssignableFrom(SignUpViewModel::class.java) -> SignUpViewModel() as T
             modelClass.isAssignableFrom(HomeViewModel::class.java) -> HomeViewModel() as T
             modelClass.isAssignableFrom(StatusViewModel::class.java) -> StatusViewModel() as T
+            modelClass.isAssignableFrom(MessageViewModel::class.java) -> MessageViewModel() as T
             else -> throw IllegalArgumentException("Unknown ViewModel class: " + modelClass.name)
         }
         if (viewModel is BaseViewModel) {

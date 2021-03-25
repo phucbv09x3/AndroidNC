@@ -1,5 +1,8 @@
 package com.example.androidnc.utils
 
+import android.view.View
+import android.widget.LinearLayout
+import com.example.androidnc.R
 import com.example.androidnc.data.api.Repository
 import retrofit2.Retrofit
 import retrofit2.converter.gson.GsonConverterFactory
@@ -21,4 +24,7 @@ object Constants {
             .create(Repository::class.java)
 
     }
+
+
+
 }

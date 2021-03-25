@@ -8,16 +8,72 @@
             type="com.example.androidnc.ui.main.MainViewModel" />
     </data>
 
-    <LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    <androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
         xmlns:app="http://schemas.android.com/apk/res-auto"
         xmlns:tools="http://schemas.android.com/tools"
         android:layout_width="match_parent"
         android:layout_height="match_parent"
-        android:orientation="vertical"
         tools:context=".ui.main.MainActivity">
         <androidx.fragment.app.FragmentContainerView
             android:id="@+id/main_nav_fragment"
             android:layout_width="match_parent"
             android:layout_height="match_parent" />
-    </LinearLayout>
+        <LinearLayout
+            android:id="@+id/ln"
+            android:visibility="visible"
+            android:layout_width="match_parent"
+            android:layout_height="40dp"
+            android:orientation="horizontal"
+            android:weightSum="5"
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintLeft_toLeftOf="parent">
+            <Button
+                android:id="@+id/btn_status"
+                android:onClick="@{()->viewModel.clickButtonHome()}"
+                android:layout_marginLeft="18dp"
+                android:layout_marginRight="18dp"
+                android:layout_width="0dp"
+                android:layout_weight="1"
+                android:background="@drawable/ic_baseline_home_24"
+                android:layout_height="match_parent"/>
+
+            <Button
+                android:id="@+id/btn_message"
+                android:onClick="@{()->viewModel.clickButtonMessage()}"
+                android:layout_marginLeft="18dp"
+                android:layout_marginRight="18dp"
+                android:layout_width="0dp"
+                android:paddingTop="10dp"
+                android:layout_weight="1"
+                android:background="@drawable/ic_baseline_message_24"
+                android:layout_height="match_parent"/>
+            <Button
+                android:id="@+id/btn_add"
+                android:onClick="@{()->viewModel.clickButtonAdd()}"
+                android:layout_marginLeft="18dp"
+                android:layout_marginRight="18dp"
+                android:layout_width="0dp"
+                android:layout_weight="1"
+                android:background="@drawable/ic_baseline_add_24"
+                android:layout_height="match_parent"/>
+            <Button
+                android:id="@+id/btn_notify"
+                android:onClick="@{()->viewModel.clickButtonNotify()}"
+                android:layout_marginLeft="18dp"
+                android:layout_marginRight="18dp"
+                android:layout_width="0dp"
+                android:layout_weight="1"
+                android:background="@drawable/ic_baseline_notifications_24"
+                android:layout_height="match_parent"/>
+            <Button
+                android:id="@+id/btn_menu"
+                android:onClick="@{()->viewModel.clickButtonMenu()}"
+                android:layout_marginLeft="18dp"
+                android:layout_marginRight="18dp"
+                android:layout_width="0dp"
+                android:layout_weight="1"
+                android:background="@drawable/ic_baseline_menu_24"
+                android:layout_height="match_parent"/>
+        </LinearLayout>
+    </androidx.constraintlayout.widget.ConstraintLayout>
 </layout>

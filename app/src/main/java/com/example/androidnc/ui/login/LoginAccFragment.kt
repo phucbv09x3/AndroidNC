@@ -1,13 +1,14 @@
 package com.example.androidnc.ui.login
 
 
+import android.view.View
+import android.widget.LinearLayout
 import android.widget.Toast
 import androidx.lifecycle.Observer
 import com.example.androidnc.R
 import com.example.androidnc.databinding.FragmentLoginCoinBinding
 import com.example.androidnc.ui.base.BaseFragment
-import com.example.androidnc.ui.list.HomeFragment
-import com.example.androidnc.ui.list.ListCoinFragment
+import com.example.androidnc.ui.status.StatusFragment
 import com.google.firebase.auth.FirebaseAuth
 import com.google.firebase.auth.FirebaseUser
 
@@ -25,14 +26,16 @@ class LoginAccFragment : BaseFragment<LoginAccViewModel, FragmentLoginCoinBindin
     }
 
     override fun initView() {
+        activity.findViewById<LinearLayout>(R.id.ln).visibility= View.GONE
+
         val user=FirebaseAuth.getInstance().currentUser
         updateUI(user)
     }
 
-    fun updateUI(current:FirebaseUser){
+    fun updateUI(current:FirebaseUser?){
         current?.let {
             if (current.isEmailVerified){
-                navigators.switchFragment(HomeFragment::class)
+                navigators.switchFragment(StatusFragment::class)
             }
         }
     }
@@ -43,7 +46,7 @@ class LoginAccFragment : BaseFragment<LoginAccViewModel, FragmentLoginCoinBindin
             when(it){
                 1->{
                     Toast.makeText(context, "ok", Toast.LENGTH_LONG).show()
-                    navigators.switchFragment(HomeFragment::class)
+                    navigators.switchFragment(StatusFragment::class)
                 }
                 2->{
 

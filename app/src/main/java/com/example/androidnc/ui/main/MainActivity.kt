@@ -2,14 +2,16 @@ package com.example.androidnc.ui.main
 
 import android.content.res.Resources
 import android.os.Bundle
+import androidx.lifecycle.Observer
 import com.example.androidnc.R
 import com.example.androidnc.databinding.ActivityMainBinding
 import com.example.androidnc.ui.base.BaseActivity
 import com.example.androidnc.ui.base.BaseFragment
 import com.example.androidnc.ui.list.HomeFragment
 import com.example.androidnc.ui.list.ListCoinFragment
-import com.example.androidnc.ui.list.StatusFragment
+import com.example.androidnc.ui.status.StatusFragment
 import com.example.androidnc.ui.login.LoginAccFragment
+import com.example.androidnc.ui.message.MessageFragment
 import com.example.androidnc.ui.signup.SignUpFragment
 import com.example.androidnc.utils.printLog
 import kotlin.reflect.KClass
@@ -38,6 +40,16 @@ open class MainActivity : BaseActivity<MainViewModel, ActivityMainBinding>() {
 
     override fun initData() {
         switchFragment(LoginAccFragment::class, null, false)
+        mViewModel.valueCheckBtn.observe(this, Observer {
+            when(it){
+                1->{
+                    switchFragment(StatusFragment::class)
+                }
+                2->{
+                    switchFragment(MessageFragment::class)
+                }
+            }
+        })
     }
 
 
@@ -56,6 +68,7 @@ open class MainActivity : BaseActivity<MainViewModel, ActivityMainBinding>() {
             SignUpFragment::class->SignUpFragment()
             HomeFragment::class -> HomeFragment()
             StatusFragment::class -> StatusFragment()
+            MessageFragment::class -> MessageFragment()
             else -> {
                 throw Resources.NotFoundException("Fragment not fount, please check again")
             }

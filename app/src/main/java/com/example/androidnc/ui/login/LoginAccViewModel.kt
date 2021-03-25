@@ -31,7 +31,7 @@ class LoginAccViewModel() : BaseViewModel() {
     private var auth = FirebaseAuth.getInstance()
 
     val valueCheckLogin = MutableLiveData<Int>()
-    val current: FirebaseUser? = auth.currentUser
+    private val current: FirebaseUser? = auth.currentUser
 
     fun onClickLogin() {
         val name = userName.get().toString()
@@ -43,7 +43,7 @@ class LoginAccViewModel() : BaseViewModel() {
                 .addOnCompleteListener { task ->
                     if (task.isSuccessful) {
                         //updateUI(current)
-                        if (current!!.isEmailVerified) {
+                        if (current?.isEmailVerified == true) {
                             valueCheckLogin.value = 1
                         }else{
                             valueCheckLogin.value=4
@@ -54,13 +54,6 @@ class LoginAccViewModel() : BaseViewModel() {
                 }
         } else if (!name.matches(patternMail.toRegex())) {
             valueCheckLogin.value = 3
-        }
-    }
-
-
-    fun updateUI(current: FirebaseUser?) {
-        current?.let {
-            navigation.switchFragment(ListCoinFragment::class)
         }
     }
 
