@@ -7,9 +7,8 @@ import java.util.*
 class AddSttViewModel : BaseViewModel() {
     var textStt = ObservableField<String>()
 
-    fun clickBtnAddImage(){
-
-    }
-    fun clickBtnAdd(){}
+//    fun clickBtnAddImage(){
+//
+//    }
 
 }

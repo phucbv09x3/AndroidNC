@@ -24,7 +24,6 @@ class SignUpFragment :BaseFragment<SignUpViewModel, FragmentSingUpBinding>(){
     }
 
     override fun initView() {
-        activity.findViewById<LinearLayout>(R.id.ln).visibility= View.GONE
 
     }
 

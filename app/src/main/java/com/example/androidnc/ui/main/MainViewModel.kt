@@ -8,7 +8,6 @@ import com.example.androidnc.ui.base.BaseViewModel
  */
 class MainViewModel : BaseViewModel() {
 
-    var valueCheckBtn=MutableLiveData<Int>()
 
     fun saveToken(token: String) {
        // dataManager.token = token
@@ -18,22 +17,5 @@ class MainViewModel : BaseViewModel() {
         return dataManager.token
     }
 
-
-    fun clickButtonHome(){
-        valueCheckBtn.value=1
-    }
-    fun clickButtonMessage(){
-        valueCheckBtn.value=2
-    }
-    fun clickButtonAdd(){
-
-    }
-    fun clickButtonNotify(){
-
-    }
-
-    fun clickButtonMenu(){
-
-    }
 
 }

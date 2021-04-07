@@ -4,6 +4,7 @@ import androidx.lifecycle.ViewModel
 import androidx.lifecycle.ViewModelProvider
 import com.example.androidnc.data.DataManager
 import com.example.androidnc.data.local.room.CoinDatabase
+import com.example.androidnc.ui.addstt.AddSttViewModel
 import com.example.androidnc.ui.list.HomeViewModel
 import com.example.bitcoin.data.scheduler.ISchedulerProvider
 import com.example.androidnc.ui.list.ListCoinViewModel
@@ -33,6 +34,7 @@ class ViewModelFactory @Inject constructor(
             modelClass.isAssignableFrom(HomeViewModel::class.java) -> HomeViewModel() as T
             modelClass.isAssignableFrom(StatusViewModel::class.java) -> StatusViewModel() as T
             modelClass.isAssignableFrom(MessageViewModel::class.java) -> MessageViewModel() as T
+            modelClass.isAssignableFrom(AddSttViewModel::class.java) -> AddSttViewModel() as T
             else -> throw IllegalArgumentException("Unknown ViewModel class: " + modelClass.name)
         }
         if (viewModel is BaseViewModel) {

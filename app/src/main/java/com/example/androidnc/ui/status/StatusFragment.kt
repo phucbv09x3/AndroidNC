@@ -11,7 +11,7 @@ import kotlinx.android.synthetic.main.fragment_status.*
 import java.util.*
 
 class StatusFragment : BaseFragment<StatusViewModel,FragmentStatusBinding>() {
-    lateinit var adapter:StatusAdapter
+     var adapter:StatusAdapter= StatusAdapter(mutableListOf())
     override fun createViewModel(): Class<StatusViewModel> {
         return StatusViewModel::class.java
     }
@@ -25,9 +25,6 @@ class StatusFragment : BaseFragment<StatusViewModel,FragmentStatusBinding>() {
             layoutManager = LinearLayoutManager(context, LinearLayoutManager.VERTICAL, false)
             adapter= StatusAdapter(mutableListOf())
         }
-
-        activity.findViewById<LinearLayout>(R.id.ln).visibility= View.VISIBLE
-        activity.findViewById<Button>(R.id.btn_status).setBackgroundResource(R.drawable.ic_baseline_home_24_color)
     }
 
 

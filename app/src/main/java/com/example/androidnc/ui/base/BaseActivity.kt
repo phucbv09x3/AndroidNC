@@ -1,19 +1,25 @@
 package com.example.androidnc.ui.base
 
+import android.app.Activity
 import android.content.Intent
 import android.os.Bundle
+import android.util.Log
+import android.widget.ImageView
 import androidx.appcompat.app.AppCompatActivity
 import androidx.databinding.DataBindingUtil
 import androidx.databinding.ViewDataBinding
 import androidx.lifecycle.ViewModelProviders
 import com.example.androidnc.BR
 import com.example.androidnc.App
+import com.example.androidnc.R
 import com.example.androidnc.data.DataManager
+import com.example.androidnc.ui.addstt.AddSttFragment
 import com.example.bitcoin.data.local.service.CoinService
 import com.example.bitcoin.data.scheduler.ISchedulerProvider
 import com.example.androidnc.utils.printLog
 import io.reactivex.disposables.CompositeDisposable
 import io.reactivex.disposables.Disposable
+import kotlinx.android.synthetic.main.fragment_add_stt.*
 import javax.inject.Inject
 
 /**
@@ -81,6 +87,8 @@ abstract class BaseActivity<VM : BaseViewModel, DB : ViewDataBinding> : AppCompa
     }
 
 
+
+
     private fun trackingProgress() {
 //        mViewModel.progressBar
 //            .subscribeOn(schedulerProvider.io)
@@ -125,5 +133,12 @@ abstract class BaseActivity<VM : BaseViewModel, DB : ViewDataBinding> : AppCompa
     fun Disposable.addDisposable() {
         mDisposable.add(this)
     }
+    override fun onActivityResult(requestCode: Int, resultCode: Int, data: Intent?) {
+        super.onActivityResult(requestCode, resultCode, data)
+        AddSttFragment().resultImage(requestCode,resultCode,data)
+
+    }
+
+
 
 }

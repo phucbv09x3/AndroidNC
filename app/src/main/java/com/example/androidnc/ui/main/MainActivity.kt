@@ -2,9 +2,12 @@ package com.example.androidnc.ui.main
 
 import android.content.res.Resources
 import android.os.Bundle
+import android.view.MenuItem
 import androidx.lifecycle.Observer
 import com.example.androidnc.R
 import com.example.androidnc.databinding.ActivityMainBinding
+import com.example.androidnc.ui.addstt.AddSttFragment
+import com.example.androidnc.ui.addstt.AddSttViewModel
 import com.example.androidnc.ui.base.BaseActivity
 import com.example.androidnc.ui.base.BaseFragment
 import com.example.androidnc.ui.list.HomeFragment
@@ -14,6 +17,7 @@ import com.example.androidnc.ui.login.LoginAccFragment
 import com.example.androidnc.ui.message.MessageFragment
 import com.example.androidnc.ui.signup.SignUpFragment
 import com.example.androidnc.utils.printLog
+import com.google.android.material.bottomnavigation.BottomNavigationView
 import kotlin.reflect.KClass
 
 /**
@@ -23,7 +27,6 @@ import kotlin.reflect.KClass
 open class MainActivity : BaseActivity<MainViewModel, ActivityMainBinding>() {
 
     private lateinit var currentFragment: BaseFragment<*, *>
-
 
 
     override fun createViewModel(): Class<MainViewModel> {
@@ -39,19 +42,34 @@ open class MainActivity : BaseActivity<MainViewModel, ActivityMainBinding>() {
     }
 
     override fun initData() {
+        val navigation = findViewById<BottomNavigationView>(R.id.bottom_nav)
+        navigation.setOnNavigationItemSelectedListener(onNav())
         switchFragment(LoginAccFragment::class, null, false)
-        mViewModel.valueCheckBtn.observe(this, Observer {
-            when(it){
-                1->{
-                    switchFragment(StatusFragment::class)
-                }
-                2->{
-                    switchFragment(MessageFragment::class)
-                }
-            }
-        })
     }
 
+
+    private fun onNav() = object : BottomNavigationView.OnNavigationItemSelectedListener {
+        override fun onNavigationItemSelected(item: MenuItem): Boolean {
+            when (item.itemId) {
+                R.id.btn_status_nav -> {
+                    return true
+                }
+                R.id.btn_home_nav -> {
+                    return true
+                }
+                R.id.btn_message_nav -> {
+                    return true
+                }
+                R.id.btn_notify_nav -> {
+                    return true
+                }
+                R.id.btn_add_nav -> {
+                    return true
+                }
+            }
+            return false
+        }
+    }
 
     override fun onFragmentResumed(fragment: BaseFragment<*, *>) {
         printLog("onFragmentResumed ${fragment.javaClass.simpleName} - ${supportFragmentManager.backStackEntryCount}")
@@ -65,10 +83,11 @@ open class MainActivity : BaseActivity<MainViewModel, ActivityMainBinding>() {
         val instanceFragment = when (fragment) {
             LoginAccFragment::class -> LoginAccFragment()
             ListCoinFragment::class -> ListCoinFragment()
-            SignUpFragment::class->SignUpFragment()
+            SignUpFragment::class -> SignUpFragment()
             HomeFragment::class -> HomeFragment()
             StatusFragment::class -> StatusFragment()
             MessageFragment::class -> MessageFragment()
+            AddSttFragment::class -> AddSttFragment()
             else -> {
                 throw Resources.NotFoundException("Fragment not fount, please check again")
             }

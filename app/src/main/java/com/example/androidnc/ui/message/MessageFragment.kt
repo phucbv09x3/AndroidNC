@@ -22,8 +22,6 @@ class MessageFragment : BaseFragment<MessageViewModel,FragmentMessageBinding>() 
     }
 
     override fun initView() {
-        activity.findViewById<LinearLayout>(R.id.ln).visibility= View.VISIBLE
-        activity.findViewById<Button>(R.id.btn_message).setBackgroundResource(R.drawable.ic_baseline_message_24_color)
     }
 
     override fun bindViewModel() {

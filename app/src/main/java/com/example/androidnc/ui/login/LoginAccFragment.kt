@@ -26,8 +26,6 @@ class LoginAccFragment : BaseFragment<LoginAccViewModel, FragmentLoginCoinBindin
     }
 
     override fun initView() {
-        activity.findViewById<LinearLayout>(R.id.ln).visibility= View.GONE
-
         val user=FirebaseAuth.getInstance().currentUser
         updateUI(user)
     }
